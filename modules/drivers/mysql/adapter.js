@@ -10,10 +10,11 @@ var connection = mysql.createConnection({
 connection.connect()
 
 export default {
-  select() {
+  select({ table }) {
     return new Promise((resolve, reject) => {
-      connection.query('SELECT * FROM posts', (error, results) => {
-        
+      connection.query(`SELECT * FROM ${table}`,  (error, results) => {
+        if(error) return reject(error)
+        resolve(results)
       })
     })
   }

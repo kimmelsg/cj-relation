@@ -1,6 +1,7 @@
+import adapter from './adapter'
+
 export default class MysqlDriver {
   static async all() {
-    connection.query('SELECT * FROM posts')
-    return this.tableName();
+    return await adapter.select({ table: this.tableName() })
   }
 }
