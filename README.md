@@ -3,7 +3,7 @@
 Currently, only mysql is supported.
 
 ```
-npm install _____ --save
+npm install nav-orm --save
 ```
 
 ###Setup
@@ -27,6 +27,13 @@ import { Model } from 'orm'
 
 export default class Chat extends Model {
 
+  /*
+  overwrite table name, this function is optional
+
+  static tableName() {
+    return 'dashboard_chats'
+  }
+  */
 }
 
 
@@ -48,3 +55,5 @@ async function getChats {
 ####Supported methods
 
 `.all()` - returns everything in the table
+`.where({ fieldName: 'value' })` - returns any matching results
+`.create({ field: 'value'})` - create a new row

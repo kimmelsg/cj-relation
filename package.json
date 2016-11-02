@@ -1,13 +1,11 @@
 {
-  "name": "orm",
-  "version": "1.0.0",
+  "name": "nav-orm",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
-  "directories": {
-    "example": "example"
-  },
+  "main": "dist/index.js",
   "scripts": {
-    "test": "mocha --require babel-register --require tests/setup tests/unit --recursive"
+    "test": "mocha --require babel-register --require tests/setup tests/unit --recursive",
+    "build": "babel modules --out-dir dist"
   },
   "author": "",
   "license": "ISC",
