@@ -54,6 +54,6 @@ async function getChats {
 
 ####Supported methods
 
-`.all()` - returns everything in the table
-`.where({ fieldName: 'value' })` - returns any matching results
-`.create({ field: 'value'})` - create a new row
+- `.all()` returns everything in the table
+- `.where({ fieldName: 'value' })` returns any matching results
+- `.create({ field: 'value'})` create a new row
