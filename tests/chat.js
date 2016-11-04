@@ -1,5 +1,5 @@
-import Model from '../dist/model'
+import { Model } from '../dist'
 
 export default class Chat extends Model {
-  
+
 }

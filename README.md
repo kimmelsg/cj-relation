@@ -1,4 +1,4 @@
-###ORM
+###Relation
 
 Currently, only mysql is supported.
 
