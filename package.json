@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "babel-polyfill": "^6.16.0",
+    "mysql": "^2.11.1",
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
     "dotenv": "^2.0.0",
