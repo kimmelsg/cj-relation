@@ -2,3 +2,4 @@ tests
 modules
 .babelrc
 .gitignore
+circle.yml
