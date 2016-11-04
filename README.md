@@ -3,7 +3,7 @@
 Currently, only mysql is supported.
 
 ```
-npm install nav-orm --save
+npm install relation --save
 ```
 
 ###Setup
@@ -23,7 +23,7 @@ DB_NAME=blah
 `chat.js`
 
 ```js
-import { Model } from 'orm'
+import { Model } from 'relation'
 
 export default class Chat extends Model {
 

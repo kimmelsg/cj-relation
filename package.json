@@ -1,6 +1,6 @@
 {
-  "name": "nav-orm",
-  "version": "0.0.1",
+  "name": "relation",
+  "version": "0.0.2",
   "description": "",
   "bin": {
     "make:migration": "dist/migrations/cli.js"
