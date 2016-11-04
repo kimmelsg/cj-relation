@@ -7,6 +7,7 @@
   },
   "main": "dist/index.js",
   "scripts": {
+    "local-test": "mocha --require babel-register --require tests/local-setup tests/unit --recursive",
     "test": "mocha --require babel-register --require tests/setup tests/unit --recursive",
     "build": "babel modules --out-dir dist"
   },
