@@ -23,4 +23,8 @@ export default class MysqlDriver {
   static where(where) {
     return new Builder({ where, table: this.tableName() })
   }
+
+  static limit(limit) {
+    return new Builder({ limit, table: this.tableName() })
+  }
 }

@@ -61,6 +61,7 @@ async function getChats {
 - `.create({ field: 'value'})` create a new row
 - `.select('column', 'column2')` create a new row
 - `.first()` returns first results
+- `.limit(5)` limits the query
 
 ###Query Building
 
@@ -71,5 +72,8 @@ Chat.select('messages', 'id').where({ messages: 'blah' }).get()
 Chat.where({ messages: 'blah' }).get()
 
 Chat.select('messages').first()
+
+Chat.where({ messages: 'blah' }).limit(2).get()
+
 
 ```
