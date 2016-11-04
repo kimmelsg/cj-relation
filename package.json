@@ -2,6 +2,9 @@
   "name": "nav-orm",
   "version": "0.0.1",
   "description": "",
+  "bin": {
+    "make:migration": "dist/migrations/cli.js"
+  },
   "main": "dist/index.js",
   "scripts": {
     "test": "mocha --require babel-register --require tests/setup tests/unit --recursive",
