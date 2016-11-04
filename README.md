@@ -59,3 +59,17 @@ async function getChats {
 - `.all()` returns everything in the table
 - `.where({ fieldName: 'value' })` returns any matching results
 - `.create({ field: 'value'})` create a new row
+- `.select('column', 'column2')` create a new row
+- `.first()` returns first results
+
+###Query Building
+
+```js
+
+Chat.select('messages', 'id').where({ messages: 'blah' }).get()
+
+Chat.where({ messages: 'blah' }).get()
+
+Chat.select('messages').first()
+
+```
