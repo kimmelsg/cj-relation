@@ -1,4 +1,4 @@
-import Chat from '../relationships/chat'
+import Chat from '../../../setup/models/relationships/chat'
 
 describe('Chat.user()', () => {
   it('lazy loads user', async function() {

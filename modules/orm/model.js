@@ -1,6 +1,8 @@
 import adapter from './adapters'
 import { getTableName, getFieldName } from './global/get-name'
 
+if(!adapter) throw new Error('You must specify process.env.DB_DRIVER before creating a model.')
+
 export default class Model {
   constructor(values) {
     this.values = values
@@ -43,6 +45,7 @@ export default class Model {
   //relationships
 
   hasOne(Model, localField = getFieldName(Model.name), remoteField = 'id') {
+    /* istanbul ignore next */
     return Model.where({ [remoteField]: this.values[localField] }).first()
   }
 }

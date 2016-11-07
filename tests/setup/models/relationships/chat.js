@@ -1,4 +1,4 @@
-import { Model } from '../../modules'
+import { Model } from '../../../../modules'
 import User from './user'
 
 export default class Chat extends Model {

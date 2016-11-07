@@ -21,11 +21,6 @@ export default class Builder {
     return this
   }
 
-  limit(limit) {
-    this.options.limit = limit
-    return this
-  }
-
 
   first() {
     this.options.limit = 1

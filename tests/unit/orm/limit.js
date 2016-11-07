@@ -1,4 +1,4 @@
-import Chat from '../chat'
+import Chat from '../../setup/models/chat'
 
 describe('Model.limit()', () => {
   it('limits to 5', async function() {

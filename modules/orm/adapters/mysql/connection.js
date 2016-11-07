@@ -10,6 +10,7 @@ const db_config = {
 
 let connection
 
+/* istanbul ignore next */
 function handleDisconnect() {
   connection = mysql.createConnection(db_config)
 

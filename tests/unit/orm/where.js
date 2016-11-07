@@ -1,4 +1,4 @@
-import Chat from '../chat'
+import Chat from '../../setup/models/chat'
 
 describe('Model.where()', () => {
   it('grabs by id', async function() {

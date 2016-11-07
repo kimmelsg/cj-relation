@@ -1,4 +1,4 @@
-import Chat from '../chat'
+import Chat from '../../setup/models/chat'
 
 describe('Model.select()', () => {
   it('grabs by id', async function() {
@@ -8,7 +8,7 @@ describe('Model.select()', () => {
   })
 
   it('grabs first by id', async function() {
-    let chat = await Chat.select('messages').first()
+    let chat = await Chat.where({messages: 'blah'}).select('messages').first()
     expect(Object.keys(chat).length).to.be.equal(1)
     expect(chat.messages).to.be.equal('blah')
   })

@@ -7,10 +7,10 @@
   },
   "main": "dist/index.js",
   "scripts": {
-    "local-test": "mocha --require babel-register --require tests/local-setup tests/unit --recursive",
+    "local-test": "mocha --require babel-register --require tests/setup/local-setup tests/unit --recursive",
     "build": "babel modules --out-dir dist",
-    "local-cover": "istanbul cover ./node_modules/.bin/_mocha -- --require babel-register --require tests/local-setup tests/unit --recursive",
-    "test": "istanbul cover --include-all-sources ./node_modules/.bin/_mocha -- --require babel-register --require tests/setup tests/unit --recursive && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+    "local-cover": "istanbul cover ./node_modules/.bin/_mocha -- --require babel-register --require tests/setup/local-setup tests/unit --recursive",
+    "test": "istanbul cover --include-all-sources ./node_modules/.bin/_mocha -- --require babel-register --require tests/setup/setup tests/unit --recursive && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
   "author": "",
   "license": "ISC",

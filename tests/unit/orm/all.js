@@ -1,4 +1,4 @@
-import Chat from '../chat'
+import Chat from '../../setup/models/chat'
 
 describe('Model.all()', () => {
   it('grabs all', async function() {
