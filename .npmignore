@@ -3,3 +3,4 @@ modules
 .babelrc
 .gitignore
 circle.yml
+coverage
