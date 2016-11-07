@@ -2,7 +2,7 @@
 
 ###Relation
 
-Currently, only mysql is supported.
+This is meant to be the best ORM in node. Taking inspiration from knex and sequelize, but the end goal to to completely mimick Laravel's Eloquent package. In order to achieve the best syntax possible, we are using ES6 Proxies, which is now supported in the latest version of node. Currently, only mysql is supported, but adding a new driver is trivial.
 
 ```
 npm install relation --save
@@ -59,7 +59,7 @@ async function getChats {
 - `.all()` returns everything in the table
 - `.where({ fieldName: 'value' })` returns any matching results
 - `.create({ field: 'value'})` create a new row
-- `.select('column', 'column2')` create a new row
+- `.select('column', 'column2')` contrain rows to select
 - `.first()` returns first results
 - `.limit(5)` limits the query
 
@@ -77,3 +77,44 @@ Chat.where({ messages: 'blah' }).limit(2).get()
 
 
 ```
+
+###Relationships
+
+This is a huge WIP, feel free to contribute :) 
+
+Supported:
+- One To One
+
+Todo:
+- One To Many
+- One To Many (Inverse)
+- Many To Many
+- Has Many Through
+- Polymorphic Relations
+- Many To Many Polymorphic Relations
+
+####One to One Example
+
+```js
+import { Model } from 'relation'
+
+
+export default class User extends Model {
+  
+}
+
+export default class Chat extends Model {
+  user() {
+    return this.hasOne(User)
+  }
+}
+
+let chat = await Chat.first()
+
+//any relationship will return a promise with the result
+let user = await chat.user
+
+expect(user.name).to.be.equal('Bob')
+
+```
+
