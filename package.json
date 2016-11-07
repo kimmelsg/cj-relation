@@ -10,7 +10,7 @@
     "local-test": "mocha --require babel-register --require tests/local-setup tests/unit --recursive",
     "build": "babel modules --out-dir dist",
     "local-cover": "istanbul cover ./node_modules/.bin/_mocha -- --require babel-register --require tests/local-setup tests/unit --recursive",
-    "test": "istanbul cover --include-all-sources ./node_modules/.bin/_mocha -- --require babel-register --require tests/setup tests/unit --recursive | cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+    "test": "istanbul cover --include-all-sources ./node_modules/.bin/_mocha -- --require babel-register --require tests/setup tests/unit --recursive && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
   },
   "author": "",
   "license": "ISC",
