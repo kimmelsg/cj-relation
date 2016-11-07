@@ -7,6 +7,9 @@ This is meant to be the best ORM in node. Taking inspiration from knex and seque
 
 ```
 npm install relation --save
+
+//if using mysql driver
+npm install mysql --save
 ```
 
 ###Setup

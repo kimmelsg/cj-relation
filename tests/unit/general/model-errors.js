@@ -14,7 +14,7 @@ describe('Model Errors', () => {
       await Test.first()
     }
     catch(e) {
-      return expect(e.message).to.equal("ER_NO_SUCH_TABLE: Table 'chat.tests' doesn't exist")
+      return expect(e.message).to.contain("ER_NO_SUCH_TABLE")
     }
     expect(false).to.equal(true)
   })
@@ -28,7 +28,7 @@ describe('Model Errors', () => {
       await Test.create({ blah: true })
     }
     catch(e) {
-      return expect(e.message).to.equal("ER_NO_SUCH_TABLE: Table 'chat.tests' doesn't exist")
+      return expect(e.message).to.contain("ER_NO_SUCH_TABLE")
     }
     expect(false).to.equal(true)
   })
