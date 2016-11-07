@@ -11,15 +11,15 @@ export default class Model {
   }
 
   static all() {
-    return adapter.select({ table: this.tableName(), model: this })
+    return adapter.select({ model: this })
   }
 
   static first() {
-    return adapter.select({ table: this.tableName(), limit: 1, model: this })
+    return adapter.select({ limit: 1, model: this })
   }
 
   static create(data) {
-    return adapter.create({ table: this.tableName(), data, model: this })
+    return adapter.create({ data, model: this })
   }
 
   /* query builder methods
@@ -29,15 +29,15 @@ export default class Model {
    */
 
   static select(...select) {
-    return adapter.queryBuilder({ select, table: this.tableName(), model: this })
+    return adapter.queryBuilder({ select, model: this })
   }
 
   static where(where) {
-    return adapter.queryBuilder({ where, table: this.tableName(), model: this })
+    return adapter.queryBuilder({ where, model: this })
   }
 
   static limit(limit) {
-    return adapter.queryBuilder({ limit, table: this.tableName(), model: this })
+    return adapter.queryBuilder({ limit, model: this })
   }
 
   //relationships
