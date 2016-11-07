@@ -4,4 +4,4 @@ machine:
 
 database:
   override:
-    - mysql -u ubuntu circle_test < ./tests/setup.sql
+    - mysql -u ubuntu circle_test < ./tests/setup/setup.sql
