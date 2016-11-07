@@ -1,4 +1,5 @@
 import connection from './connection'
+import Builder from './builder'
 
 const relatable = (result, model) => new Proxy(result, {
   get(target, name) {
@@ -28,5 +29,8 @@ export default {
         })
       })
     })
+  },
+  queryBuilder(options) {
+    return new Builder(options)
   }
 }

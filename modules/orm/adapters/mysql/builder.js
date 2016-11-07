@@ -1,4 +1,4 @@
-import adapter from './adapter'
+import adapter from './index'
 
 export default class Builder {
   constructor(options, model) {
