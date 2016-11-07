@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: 192.168.10.10 (MySQL 5.7.13-0ubuntu0.16.04.2)
+# Host: 192.168.10.10 (MySQL 5.7.12-0ubuntu1.1)
 # Database: chat
-# Generation Time: 2016-11-04 15:08:41 +0000
+# Generation Time: 2016-11-07 16:42:08 +0000
 # ************************************************************
 
 
@@ -35,6 +35,48 @@ CREATE TABLE `chats` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `chats` WRITE;
+/*!40000 ALTER TABLE `chats` DISABLE KEYS */;
+
+INSERT INTO `chats` (`id`, `user_id`, `ip`, `user_agent`, `email`, `messages`)
+VALUES
+  (1,1,NULL,NULL,NULL,'blah'),
+  (2,23,NULL,NULL,NULL,NULL),
+  (3,NULL,NULL,NULL,NULL,'blah'),
+  (4,23,NULL,NULL,NULL,NULL),
+  (5,NULL,NULL,NULL,NULL,'blah'),
+  (6,23,NULL,NULL,NULL,NULL),
+  (7,NULL,NULL,NULL,NULL,'blah'),
+  (8,23,NULL,NULL,NULL,NULL),
+  (9,NULL,NULL,NULL,NULL,'blah'),
+  (10,23,NULL,NULL,NULL,NULL),
+  (11,NULL,NULL,NULL,NULL,'blah'),
+  (12,23,NULL,NULL,NULL,NULL);
+
+/*!40000 ALTER TABLE `chats` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table users
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+
+INSERT INTO `users` (`id`, `name`)
+VALUES
+  (1,'Bob');
+
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
