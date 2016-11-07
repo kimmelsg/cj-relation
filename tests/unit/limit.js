@@ -1,6 +1,6 @@
 import Chat from '../chat'
 
-describe('Model.select()', () => {
+describe('Model.limit()', () => {
   it('limits to 5', async function() {
     let chat = await Chat.limit(5).get()
     expect(chat.length).to.be.equal(5)

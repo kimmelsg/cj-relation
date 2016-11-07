@@ -1,8 +1,9 @@
 import adapter from './adapter'
 
 export default class Builder {
-  constructor(options) {
+  constructor(options, model) {
     this.options = options
+    this.model = model
   }
 
   limit(limit) {
@@ -32,6 +33,6 @@ export default class Builder {
   }
 
   get() {
-    return adapter.select(this.options)
+    return adapter.select(this.options, this.model)
   }
 }
