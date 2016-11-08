@@ -1,4 +1,4 @@
-import { getTableName, getFieldName } from '../../../modules/orm/global/get-name'
+import { getTableName, getFieldName } from '../../../modules/global/get-name'
 
 describe('get-name', () => {
   it('gets the plural table name', () => {

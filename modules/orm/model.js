@@ -1,5 +1,5 @@
 import adapter from './adapters'
-import { getTableName, getFieldName } from './global/get-name'
+import { getTableName, getFieldName } from '../global/get-name'
 
 if(!adapter) throw new Error('You must specify process.env.DB_DRIVER before creating a model.')
 
@@ -25,7 +25,7 @@ export default class Model {
   }
 
   /* query builder methods
-   * 
+   *
    * these methods return a builder instance so that you can chain methods
    *
    */

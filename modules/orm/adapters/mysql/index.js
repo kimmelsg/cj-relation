@@ -1,6 +1,6 @@
 import connection from './connection'
 import Builder from './builder'
-import { getTableName } from '../../global/get-name'
+import { getTableName } from '../../../global/get-name'
 
 const relatable = (result, model) => new Proxy(result, {
   get(target, name) {
@@ -16,7 +16,7 @@ export default {
   select({ model, select, where, limit, joins = [] }) {
     return new Promise((resolve, reject) => {
       const options = {
-        sql: `SELECT ${select ? select : '*'} FROM ${model.tableName()}${where ? ` WHERE ${connection.escape(where)}` : ''}${this.getJoins(joins)}${limit ? ` LIMIT ${connection.escape(limit)}` : ''}`, 
+        sql: `SELECT ${select ? select : '*'} FROM ${model.tableName()}${where ? ` WHERE ${connection.escape(where)}` : ''}${this.getJoins(joins)}${limit ? ` LIMIT ${connection.escape(limit)}` : ''}`,
         nestTables: joins.length > 0 ? true : false
       }
 

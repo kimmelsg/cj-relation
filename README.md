@@ -83,7 +83,7 @@ Chat.where({ messages: 'blah' }).limit(2).get()
 
 ###Relationships
 
-This is a huge WIP, feel free to contribute :) 
+This is a huge WIP, feel free to contribute :)
 
 Supported:
 - One To One
@@ -103,7 +103,7 @@ import { Model } from 'relation'
 
 
 export default class User extends Model {
-  
+
 }
 
 export default class Chat extends Model {
@@ -134,7 +134,7 @@ export default class User extends Model {
 }
 
 export default class Chat extends Model {
-  
+
 }
 
 let user = await User.first()
@@ -145,3 +145,22 @@ let chats = await user.chats.first()
 
 ```
 
+###Migrations
+
+Will go over this soon...
+
+###CLI
+
+If you install relation globally (`npm install relation -g`) you can access the CLI methods to help create migrations, models, etc.
+
+####Migrations
+
+`relation make:migration User -m` -m will create a model as well
+
+This will create a migration file that will allow you to build out tables.
+
+####Models
+
+`relation make:model User`
+
+Creates a file in your current directory `/models/user.js` with a default model
