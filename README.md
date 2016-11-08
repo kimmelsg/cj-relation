@@ -1,6 +1,5 @@
 [![CircleCI](https://circleci.com/gh/navjobs/relation.svg?style=svg&circle-token=41fd7488fd84fed547bfb1266694db44317eec90)](https://circleci.com/gh/navjobs/relation)
-[![Coverage Status](https://coveralls.io/repos/github/navjobs/relation/badge.svg?t=jSzX1d)](https://coveralls.io/github/navjobs/relation)
-
+[![Coverage Status](https://coveralls.io/repos/github/navjobs/relation/badge.svg?branch=master&t=jSzX1d)](https://coveralls.io/github/navjobs/relation?branch=master)
 ###Relation
 
 This is meant to be the best ORM in node. Taking inspiration from knex and sequelize, but the end goal to to completely mimick Laravel's Eloquent package. In order to achieve the best syntax possible, we are using ES6 Proxies, which is now supported in the latest version of node. Currently, only mysql is supported, but adding a new driver is trivial.
