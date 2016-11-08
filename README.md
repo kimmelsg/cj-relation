@@ -88,9 +88,9 @@ This is a huge WIP, feel free to contribute :)
 
 Supported:
 - One To One
+- One To Many
 
 Todo:
-- One To Many
 - One To Many (Inverse)
 - Many To Many
 - Has Many Through
@@ -119,6 +119,30 @@ let chat = await Chat.first()
 let user = await chat.user
 
 expect(user.name).to.be.equal('Bob')
+
+```
+
+####One to Many Example
+
+```js
+import { Model } from 'relation'
+
+
+export default class User extends Model {
+  chats() {
+    return this.hasMany(Chat)
+  }
+}
+
+export default class Chat extends Model {
+  
+}
+
+let user = await User.first()
+
+//has many results return a query builder instance
+let chats = await user.chats.first()
+
 
 ```
 

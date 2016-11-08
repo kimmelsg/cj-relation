@@ -44,8 +44,26 @@ export default class Model {
 
   //relationships
 
+  with(...relationships) {
+    let joins = relationships.map(relationship => this[relationship]())
+    return adapter.queryBuilder({ joins, model: this.constructor })
+  }
+
   hasOne(Model, localField = getFieldName(Model.name), remoteField = 'id') {
-    /* istanbul ignore next */
-    return Model.where({ [remoteField]: this.values[localField] }).first()
+    return {
+      result: () => Model.where({ [remoteField]: this.values[localField] }).first(),
+      includeTable: getTableName(Model.name),
+      localField: `${getTableName(this.constructor.name)}.${localField}`,
+      remoteField: `${getTableName(Model.name)}.${remoteField}`,
+    }
+  }
+
+  hasMany(Model, localField = 'id', remoteField = getFieldName(this.constructor.name)) {
+    return {
+      result: () => Model.where({ [remoteField]: this.values[localField] }),
+      includeTable: getTableName(Model.name),
+      localField: `${getTableName(this.constructor.name)}.${localField}`,
+      remoteField: `${getTableName(Model.name)}.${remoteField}`,
+    }
   }
 }

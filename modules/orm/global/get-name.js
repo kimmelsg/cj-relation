@@ -2,6 +2,6 @@ import pluralize from 'pluralize'
 
 
 module.exports = { 
-  getTableName: (model) => pluralize(model).toLowerCase(),
-  getFieldName: (model) => `${model.toLowerCase()}_id`
+  getTableName: (model) => typeof model === 'string' ? pluralize(model).toLowerCase() : null,
+  getFieldName: (model) => typeof model === 'string' ? `${model.toLowerCase()}_id` : null
 }
