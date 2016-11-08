@@ -1,12 +1,15 @@
 export default ({ args, cwd, fs }) => {
   let filePath = `${cwd}/models/${args[0].toLowerCase()}.js`
-  
+
   const template = `import { Model } from 'relation'
 
 export default class ${args[0]} extends Model {
 
 }
 `
+  /*
+    check if models folder exists
+  */
   try {
     fs.accessSync(`${cwd}/models`, fs.F_OK)
   } catch (e) {
