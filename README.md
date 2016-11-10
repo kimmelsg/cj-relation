@@ -2,6 +2,11 @@
 [![Coverage Status](https://coveralls.io/repos/github/navjobs/relation/badge.svg?branch=master&t=jSzX1d)](https://coveralls.io/github/navjobs/relation?branch=master)
 ###Relation
 
+###Todo
+- more drivers
+- migrations support
+- more cli tools
+
 This is meant to be the best ORM in node. Taking inspiration from knex and sequelize, but the end goal to to completely mimick Laravel's Eloquent package. In order to achieve the best syntax possible, we are using ES6 Proxies, which is now supported in the latest version of node. Currently, only mysql is supported, but adding a new driver is trivial.
 
 ```
