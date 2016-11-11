@@ -1,8 +1,6 @@
 import adapter from './adapters'
 import { getTableName, getFieldName } from '../global/get-name'
 
-if(!adapter) throw new Error('You must specify process.env.DB_DRIVER before creating a model.')
-
 export default class Model {
   constructor(values) {
     this.values = values

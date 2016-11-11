@@ -1,11 +1,7 @@
-import mysql from './mysql'
-
-const adapters = {
-  mysql,
+try {
+  var adapter = require(`./${process.env.DB_DRIVER}`).default
 }
-
-/*
-  Loads an adapter based on DB_DRIVER env
-*/
-
-export default adapters[process.env.DB_DRIVER]
+catch(e) {
+  throw new Error('You must specify process.env.DB_DRIVER before creating a model.')
+}
+export default adapter
