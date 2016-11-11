@@ -6,5 +6,3 @@ var sinon = require('sinon')
 
 global.expect = expect
 global.sinon = sinon
-
-require('./global-setup')
