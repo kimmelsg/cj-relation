@@ -4,7 +4,7 @@ var Mocha = require('mocha'),
 
 var drivers = [
   'mysql',
-  //'postgres'
+  'postgres'
 ]
 
 let files = glob.sync(process.cwd()+'/tests/unit/**/*.js')

@@ -1,7 +1,9 @@
 import mysql from './mysql'
+import postgres from './postgres'
 
 const adapters = {
   mysql,
+  postgres,
 }
 
 /*
