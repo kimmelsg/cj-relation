@@ -1,6 +1,10 @@
+require('babel-register')
 require('babel-polyfill')
-import { expect } from 'chai'
-import sinon from 'sinon'
+
+var expect = require('chai').expect
+var sinon = require('sinon')
 
 global.expect = expect
 global.sinon = sinon
+
+require('./global-setup')

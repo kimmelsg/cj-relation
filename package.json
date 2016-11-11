@@ -7,7 +7,7 @@
   },
   "main": "dist/index.js",
   "scripts": {
-    "local-test": "mocha --require babel-register --require tests/setup/local-setup tests/unit --recursive",
+    "local-test": "node ./tests/setup/local-setup",
     "build": "babel modules --out-dir dist --no-comments",
     "local-cover": "istanbul cover ./node_modules/.bin/_mocha -- --require babel-register --require tests/setup/local-setup tests/unit --recursive",
     "test": "istanbul cover --include-all-sources ./node_modules/.bin/_mocha -- --require babel-register --require tests/setup/setup tests/unit --recursive && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
@@ -31,6 +31,7 @@
     "chai": "^3.5.0",
     "coveralls": "^2.11.14",
     "dotenv": "^2.0.0",
+    "glob": "^7.1.1",
     "istanbul": "^1.1.0-alpha.1",
     "mocha": "^3.1.2",
     "mysql": "^2.11.1",
