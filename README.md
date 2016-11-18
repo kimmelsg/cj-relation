@@ -99,7 +99,6 @@ Supported:
 - One To Many
 
 Todo:
-- One To Many (Inverse)
 - Many To Many
 - Has Many Through
 - Polymorphic Relations
