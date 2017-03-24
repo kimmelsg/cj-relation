@@ -2,14 +2,14 @@
 [![Coverage Status](https://coveralls.io/repos/github/navjobs/relation/badge.svg?branch=master&t=jSzX1d)](https://coveralls.io/github/navjobs/relation?branch=master)
 ###Relation
 
-###Todo
+### Todo
 - more drivers
 - migrations support
 - more cli tools
 
 Relation takes inspiration from knex and sequelize, but the end goal to to completely mimick Laravel's Eloquent package. In order to achieve the best syntax possible, we are using ES6 Proxies, which is now supported in the latest version of node. Currently, only mysql is supported, but adding a new driver is trivial.
 
-##Why this over xyz?
+## Why this over xyz?
 
 Read [this wiki page](https://github.com/navjobs/relation/wiki/Comparison-with-other-ORMs---Query-Builders) for why this is better than knex and sequelize. The gist is this: syntax, and lazy loading relationships.
 
@@ -20,7 +20,7 @@ npm install relation --save
 npm install mysql --save
 ```
 
-###Setup
+### Setup
 
 You must set the following environment variables in your app. We recommend creating a `.env` file and using [dotenv](https://github.com/motdotla/dotenv)
 
@@ -53,7 +53,7 @@ export default class Chat extends Model {
 
 ```
 
-###Using the Model
+### Using the Model
 
 As long as the plural version of the model is available in the database (you can overwrite this), you can query the database.
 
@@ -66,7 +66,7 @@ async function getChats {
 }
 ```
 
-####Supported methods
+#### Supported methods
 
 - `.all()` returns everything in the table
 - `.where({ fieldName: 'value' })` returns any matching results
@@ -75,7 +75,7 @@ async function getChats {
 - `.first()` returns first results
 - `.limit(5)` limits the query
 
-###Query Building
+### Query Building
 
 ```js
 
@@ -90,7 +90,7 @@ Chat.where({ messages: 'blah' }).limit(2).get()
 
 ```
 
-###Relationships
+### Relationships
 
 This is a huge WIP, feel free to contribute :)
 
@@ -104,7 +104,7 @@ Todo:
 - Polymorphic Relations
 - Many To Many Polymorphic Relations
 
-####One to One Example
+#### One to One Example
 
 ```js
 import { Model } from 'relation'
@@ -129,7 +129,7 @@ expect(user.name).to.be.equal('Bob')
 
 ```
 
-####One to Many Example
+#### One to Many Example
 
 ```js
 import { Model } from 'relation'
@@ -153,21 +153,21 @@ let chats = await user.chats.first()
 
 ```
 
-###Migrations
+### Migrations
 
 Will go over this soon...
 
-###CLI
+### CLI
 
 If you install relation globally (`npm install relation -g`) you can access the CLI methods to help create migrations, models, etc.
 
-####Migrations
+#### Migrations
 
 `relation make:migration User -m` -m will create a model as well
 
 This will create a migration file that will allow you to build out tables.
 
-####Models
+#### Models
 
 `relation make:model User`
 
