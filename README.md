@@ -32,7 +32,7 @@ DB_PASSWORD=secret
 DB_NAME=blah
 ```
 
-###Create a Model
+### Create a Model
 
 `chat.js`
 
