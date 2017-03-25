@@ -4,4 +4,5 @@ modules
 .gitignore
 circle.yml
 coverage
-migrations
+/migrations
+.env

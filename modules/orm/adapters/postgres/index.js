@@ -3,7 +3,7 @@ import Builder from '../builder'
 import { getTableName } from '../../../global/get-name'
 
 
-class MysqlAdapter {
+class PostgresAdapter {
 
   /*
     Generic Adapter Methods (these should be in every adapter)
@@ -15,16 +15,16 @@ class MysqlAdapter {
   */
   select({ model, select, where, limit, joins = [] }) {
     return new Promise((resolve, reject) => {
-      const options = {
-        sql: `SELECT ${select ? select : '*'} FROM ${model.tableName()}${where ? ` WHERE ${connection.escape(where)}` : ''}${this.getJoins(joins)}${limit ? ` LIMIT ${connection.escape(limit)}` : ''}`,
-        nestTables: joins.length > 0 ? true : false
-      }
+      connection.connect((err, client, done) => {
+        if(err) return reject(err)
 
-      connection.query(options,  (error, results) => {
-        if(error) return reject(error)
+        console.log(`SELECT ${select ? select : '*'} FROM ${model.tableName()}${where ? ` WHERE ${where}` : ''}${this.getJoins(joins)}${limit ? ` LIMIT ${limit}` : ''}`)
+        client.query(`SELECT ${select ? select : '*'} FROM ${model.tableName()}${where ? ` WHERE ${where}` : ''}${this.getJoins(joins)}${limit ? ` LIMIT ${limit}` : ''}`, (error, result) => {
+          if(error) return reject(error)
 
-        if(joins.length > 0) results = this.mergeInJoins(results)
-        resolve(this.makeRelatable(limit === 1 ? results[0] : results, model))
+          if(joins.length > 0) results = this.mergeInJoins(results)
+          resolve(this.makeRelatable(limit === 1 ? results[0] : results, model))
+        })
       })
     })
   }
@@ -34,12 +34,17 @@ class MysqlAdapter {
   */
   create({ model, data }) {
     return new Promise((resolve, reject) => {
-      connection.query(`INSERT INTO ${model.tableName()} SET ?`, data,  (error, result) => {
-        if(error) return reject(error)
-        resolve(this.makeRelatable({
-          id: result.insertId,
-          ...data
-        }, model))
+      connection.connect((err, client, done) => {
+        if(err) return reject(err)
+
+        client.query(`INSERT INTO ${model.tableName()} SET ?`, data, (error, result) => {
+          if(error) return reject(error)
+          resolve(this.makeRelatable({
+            id: result.insertId,
+            ...data
+          }, model))
+
+        })
       })
     })
   }
@@ -87,7 +92,7 @@ class MysqlAdapter {
   }
 
   /*
-    MYSQL SPECIFIC METHODS
+    POSTGRES SPECIFIC METHODS
   */
 
 
@@ -115,6 +120,13 @@ class MysqlAdapter {
       return newResult
     })
   }
+
+  /*
+    parse out {id: 1, messages: 'hi'} into postgres where clause
+  */
+  getWhereClause() {
+
+  }
 }
 
-export default new MysqlAdapter()
+export default new PostgresAdapter()
