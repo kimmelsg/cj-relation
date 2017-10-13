@@ -78,3 +78,35 @@ Category.select('name').first()
 Category.where({ id: 2 }).limit(2).get()
 
 ```
+
+
+## Relationships
+
+```js
+import User from './user-model'
+import Post from './post-model'
+
+export default class Category extends Model {
+
+  user() {
+    return this.hasOne(User, 'user_id')
+  }
+
+  posts() {
+    return this.hasMany(Post, 'category_id')
+  }
+}
+
+```
+
+Now, we can eager load, or get the results after the fact:
+
+```js
+let categories = await Category.all()
+
+let users = await categories.user //load all users after initial query
+let user = await categories[0].user // load a single user 
+
+// load categories with users at once
+let categoriesWithUsers = await Category.with('user').all() 
+```
