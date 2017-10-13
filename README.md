@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/navjobs/relation/badge.svg?branch=master&t=jSzX1d)](https://coveralls.io/github/navjobs/relation?branch=master)
 ### Relation
 
-An ORM meant for usage on GraphQL servers, with built in dataloading.
+An ORM meant for (Apollo) GraphQL, with built in dataloading.
 
 
 ## Create a Model
